@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="PrismTab.Views.ConfirmControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Are you sure?"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Button Content="Ok" Command="{Binding OkCommand}"
+                    Width="80"/>
+            <Button Content="Cancel" Command="{Binding CancelCommand}"
+                    Width="80"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

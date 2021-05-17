@@ -1,0 +1,38 @@
+﻿<Window x:Class="PrismTab.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        Title="{Binding Title}" 
+        Height="350" Width="525" >
+    <Window.Resources>
+        <Style TargetType="TabItem">
+            <Setter Property="Header" Value="{Binding DataContext.Title}"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Menu>
+            <MenuItem Header="Menu1"
+                      Command="{Binding MenuCommand}"
+                      CommandParameter="Menu1"/>
+            <MenuItem Header="Menu2"
+                      Command="{Binding MenuCommand}"
+                      CommandParameter="Menu2"/>
+            <MenuItem Header="ViewA"
+                      Command="{Binding MenuCommand}"
+                      CommandParameter="ViewA"/>
+            <MenuItem Header="ViewB"
+                      Command="{Binding MenuCommand}"
+                      CommandParameter="ViewB"/>
+            <MenuItem Header="Load Module"
+                      Command="{Binding LoadModuleCommand}"/>
+        </Menu>
+        <TabControl Grid.Row="1" 
+                    prism:RegionManager.RegionName="ContentRegion">
+        </TabControl>
+    </Grid>
+</Window>
